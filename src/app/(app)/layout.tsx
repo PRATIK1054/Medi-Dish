@@ -27,9 +27,10 @@ import {
 import { type I18n, getI18n, type Locale } from '@/lib/i18n';
 import NavItems from '@/components/layout/nav-items';
 import UserProfileLink from '@/components/layout/user-profile-link';
-import { usePathname, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState, Suspense } from 'react';
 import LanguageSwitcher from '@/components/layout/language-switcher';
+import { Skeleton } from '@/components/ui/skeleton';
 
 
 function Header({ t }: { t: I18n['t'] }) {
@@ -53,7 +54,7 @@ function Header({ t }: { t: I18n['t'] }) {
               Main navigation links for the application.
             </SheetDescription>
           </SheetHeader>
-          <Sidebar t={t} />
+          <Sidebar />
         </SheetContent>
       </Sheet>
 
@@ -79,7 +80,17 @@ function Header({ t }: { t: I18n['t'] }) {
   )
 }
 
-function Sidebar({ t }: { t: I18n['t'] }) {
+function Sidebar() {
+    const [t, setT] = useState<I18n['t']>(() => (key: string) => key);
+    const searchParams = useSearchParams();
+    const locale = (searchParams.get('locale') as Locale) || 'en';
+
+    useEffect(() => {
+        getI18n(locale).then(({ t }) => {
+          setT(() => t);
+        });
+    }, [locale]);
+
     const navTranslations = {
         dashboard: t('nav.dashboard'),
         interactionCheck: t('nav.interactionCheck'),
@@ -132,28 +143,38 @@ function AppLayoutContent({ children }: { children: React.ReactNode }) {
     );
 }
 
+function AppLayoutSkeleton() {
+    return (
+        <div className="flex flex-col">
+            <header className="flex h-14 items-center gap-4 border-b bg-card px-4 lg:h-[60px] lg:px-6">
+                <Skeleton className="h-8 w-8 rounded-md md:hidden" />
+                <div className="w-full flex-1"></div>
+                <Skeleton className="h-8 w-8 rounded-full" />
+            </header>
+            <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
+                <Skeleton className="h-8 w-1/4" />
+                <Skeleton className="h-48 w-full" />
+            </main>
+        </div>
+    );
+}
+
+
 export default function AppLayout({ children }: { children: React.ReactNode }) {
-    const [t, setT] = useState<I18n['t']>(() => (key: string) => key);
-    const searchParams = useSearchParams();
-    const locale = (searchParams.get('locale') as Locale) || 'en';
-    
-    useEffect(() => {
-        getI18n(locale).then(({ t }) => {
-          setT(() => t);
-        });
-    }, [locale]);
-
-
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-card md:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
-          <Sidebar t={t} />
+            <Suspense fallback={<div>Loading...</div>}>
+                <Sidebar />
+            </Suspense>
         </div>
       </div>
-      <AppLayoutContent>
-        {children}
-      </AppLayoutContent>
+      <Suspense fallback={<AppLayoutSkeleton />}>
+        <AppLayoutContent>
+          {children}
+        </AppLayoutContent>
+      </Suspense>
     </div>
   );
 }
