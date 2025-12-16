@@ -1,0 +1,33 @@
+
+{
+  "language": "भाषा",
+  "userProfile": "उपयोगकर्ता प्रोफ़ाइल",
+  "myAccount": "मेरा खाता",
+  "profile": "प्रोफ़ाइल",
+  "logout": "लॉग आउट",
+  "nav": {
+    "dashboard": "डैशबोर्ड",
+    "interactionCheck": "इंटरेक्शन जांच",
+    "myMedications": "मेरी दवाएं",
+    "reminders": "रिमाइंडर",
+    "scanPrescription": "प्रिस्क्रिप्शन स्कैन करें",
+    "learn": "जानें"
+  },
+  "dashboard": {
+    "welcome": "स्वागत है",
+    "checkInteractions": "इंटरेक्शन जांचें",
+    "currentMedications": "वर्तमान दवाएं",
+    "recentChecks": "हाल की जांच",
+    "interaction": "इंटरेक्शन",
+    "checkedOn": "{{date}} को जांचा गया",
+    "reminders": "रिमाइंडर",
+    "remindersDescription": "आपकी आगामी दवा का शेड्यूल।"
+  },
+  "check": {
+    "title": "इंटरेक्शन जांच",
+    "cardTitle": "भोजन-दवा इंटरेक्शन की जांच करें",
+    "cardDescription": "संभावित इंटरेक्शन देखने के लिए एक दवा और एक भोजन दर्ज करें।",
+    "formPlaceholder": "जैसे, वारफेरिन, लिपिटर, या अंगूर",
+    "formButton": "जांचें"
+  }
+}

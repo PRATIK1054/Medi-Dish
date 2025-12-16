@@ -1,0 +1,33 @@
+
+{
+  "language": "Language",
+  "userProfile": "User Profile",
+  "myAccount": "My Account",
+  "profile": "Profile",
+  "logout": "Logout",
+  "nav": {
+    "dashboard": "Dashboard",
+    "interactionCheck": "Interaction Check",
+    "myMedications": "My Medications",
+    "reminders": "Reminders",
+    "scanPrescription": "Scan Prescription",
+    "learn": "Learn"
+  },
+  "dashboard": {
+    "welcome": "Welcome",
+    "checkInteractions": "Check Interactions",
+    "currentMedications": "Current Medications",
+    "recentChecks": "Recent Checks",
+    "interaction": "Interaction",
+    "checkedOn": "Checked on {{date}}",
+    "reminders": "Reminders",
+    "remindersDescription": "Your upcoming medication schedule."
+  },
+  "check": {
+    "title": "Interaction Check",
+    "cardTitle": "Check for Food-Drug Interactions",
+    "cardDescription": "Enter a drug and a food to see potential interactions.",
+    "formPlaceholder": "e.g., Warfarin, Lipitor, or Grapefruit",
+    "formButton": "Check"
+  }
+}

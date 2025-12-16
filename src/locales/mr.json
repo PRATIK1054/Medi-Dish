@@ -1,0 +1,33 @@
+
+{
+  "language": "भाषा",
+  "userProfile": "वापरकर्ता प्रोफाइल",
+  "myAccount": "माझे खाते",
+  "profile": "प्रोफाइल",
+  "logout": "लॉग आउट करा",
+  "nav": {
+    "dashboard": "डॅशबोर्ड",
+    "interactionCheck": "आंतरक्रिया तपासा",
+    "myMedications": "माझी औषधे",
+    "reminders": "स्मरणपत्रे",
+    "scanPrescription": "प्रिस्क्रिप्शन स्कॅन करा",
+    "learn": "शिका"
+  },
+  "dashboard": {
+    "welcome": "स्वागत आहे",
+    "checkInteractions": "आंतरक्रिया तपासा",
+    "currentMedications": "सध्याची औषधे",
+    "recentChecks": "अलीकडील तपासण्या",
+    "interaction": "आंतरक्रिया",
+    "checkedOn": "{{date}} रोजी तपासले",
+    "reminders": "स्मरणपत्रे",
+    "remindersDescription": "तुमचे आगामी औषध वेळापत्रक."
+  },
+  "check": {
+    "title": "आंतरक्रिया तपासा",
+    "cardTitle": "अन्न-औषध आंतरक्रिया तपासा",
+    "cardDescription": "संभाव्य आंतरक्रिया पाहण्यासाठी औषध आणि अन्न प्रविष्ट करा.",
+    "formPlaceholder": "उदा. वॉरफेरिन, लिपिटर, किंवा द्राक्ष",
+    "formButton": "तपासा"
+  }
+}
